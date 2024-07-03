@@ -1,0 +1,110 @@
+const { ChatInputCommandInteraction, SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, StringSelectMenuBuilder } = require('discord.js');
+const ExtendedClient = require('../../../class/ExtendedClient');
+
+module.exports = {
+    structure: new SlashCommandBuilder()
+        .setName('components')
+        .setDescription('Test the components handler.'),
+    /**
+     * @param {ExtendedClient} client 
+     * @param {ChatInputCommandInteraction} interaction 
+     */
+    run: async (client, interaction, loginData, mongodb) => {
+
+        await interaction.reply({
+            content: 'Select one of the components below.',
+            components: [
+                new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder()
+                            .setCustomId('example-button')
+                            .setLabel('Example Button')
+                            .setStyle(1)
+                    ),
+                new ActionRowBuilder()
+                    .addComponents(
+                        new StringSelectMenuBuilder()
+                            .setCustomId('example-select')
+                            .setPlaceholder('Example Select menu')
+                            .addOptions(
+                                { label: 'Option 1', value: 'option 1' },
+                                { label: 'Option 2', value: 'option 2' },
+                                { label: 'Option 3', value: 'option 3' },
+                            )
+                    )
+            ]
+        });
+
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+const body2 = {
+                         "blob": {
+                             "d_ct": 1691262454762,
+                             "d_nd": false,
+                             "d_np": "Win32",
+                             "d_pid": "443e819e-ef4e-48b3-8581-f7ff650b0c4d",
+                             "d_sh": 1080,
+                             "d_sw": 1920,
+                             "d_tid": "58105193-3847-4b78-898a-2b9588f9e952",
+                             "d_ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
+                             "i_id": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2IjowLCJkIjp7Il9pZCI6IjVkNjVhZWYwYTY0ZGI4MDBhNTBiZDZmMCIsImNyZWF0ZWQiOjE1Njg4NTY5NzguNDcxLCJzbHVnIjoiZm9ydG5pdGUtc3RhZ2luZzIiLCJ1aWQiOiJzaXRlX3Rva2VuIn0sImlhdCI6MTU2ODg1Njk3OH0.HvNBpvoK4dI5i7GmI4A4LCMCOyR8r1HIEwRqOmgA_j0",
+                             "m_iv": "1.00.0",
+                             "p_c": "pages",
+                             "p_id": "5d65aef0a64db800a50bd5ca",
+                             "p_n": "EN",
+                             "p_s": "home",
+                             "p_t": "channel",
+                             "r_d": "t.co",
+                             "r_u": "https://t.co/",
+                             "se_id": "36fa5f81-fe64-40c0-aa79-148ea833a953",
+                             "se_s": 1691861378752,
+                             "si_d": "competitive.fortnite.com",
+                             "si_id": "5d65aef0a64db800a50bd6f0",
+                             "si_pid": "maestro-sapphire",
+                             "si_pv": "4.06.0-sapphire",
+                             "si_s": "fortnite-staging2",
+                             "u_a": "https://static.gcp.maestro.io/media/552ef679e3d499087b0ea28b/57a5227bf3dc24143b67aa31.jpg",
+                             "u_c": 1691262477068,
+                             "u_id": "64ce9e0d1bfe2d00a7ba01d8",
+                             "u_li": true,
+                             "u_n": "",
+                             "u_nu": false,
+                             "u_s": "epic",
+                             "u_u": "epic-",
+                             "u_un": "",
+                             "d_tim": 1691861644799,
+                             "d_tof": 952,
+                             "e_t": 1691861645751,
+                             "e_u": "https://competitive.fortnite.com/home",
+                             "e0": "quest",
+                             "e3": "64d55a1e8d8e2300a7ed1a64",
+                             "e4": "Emoticon - S25 FNCS Drops - EN",
+                             "t": 1691861645751
+                         }
+                     }
+
+                   const headers2 = {
+                     "Accept": "application/json, text/plain, /",
+                       "Content-Type": "application/json;charset=UTF-8",
+                       "Dnt": "1",
+                       "Referer": "https://competitive.fortnite.com/",
+                       "Sec-Ch-Ua": "\"Chromium\";v=\"118\", \"Google Chrome\";v=\"118\", \"Not=A?Brand\";v=\"99\"",
+                       "Sec-Ch-Ua-Mobile": "?0",
+                       "Sec-Ch-Ua-Platform": "\"Windows\"",
+                       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
+                       "Authorization": `Bearer ${maestroJWT}`
+                   }
+                    axios.post(`https://us-central1-firebase-lessthan3.cloudfunctions.net/quests/v3/_ID/claim`, body2, { headers: headers2 })
